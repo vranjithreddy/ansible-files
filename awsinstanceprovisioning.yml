@@ -1,17 +1,18 @@
 --- # EC2 MODULE PROVISIONING EXAMPLE
-- hosts: localhost
+- hosts: local
   connection: local
   remote_user: ec2-user
   become: yes
   gather_facts: no
-  var_files:
-  - files/keys.yml
+  vars_files:
+  - /home/ec2-user/files/keys.yml
   tasks:
   - name: Basic provisioning of two t2.micro instances
-  ec2:
-     aws_access_key: "{{aws_id}}"
-     aws_secret_key: "{{aws_key}}"
-     image: ami-f0091d91
-     instance_type: t2.micro
-     count: 2
+    ec2:
+      aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
+      aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
+      region: "{{ aws_region }}"
+      image: ami-f63b1193
+      instance_type: t2.micro
+      count: 2
      

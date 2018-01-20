@@ -1,21 +1,21 @@
 --- # Ec2 Example for creating a basic ami template from an existing image 
-- hosts: localhost 
+- hosts: local 
   connection: local
-  rempote_user: ec2-user
-  become: yes
+  remote_user: ec2-user
+  become: sudo
   gather_facts: no
-  var_files:
-  - ansible-files/files/keys
+  vars_files:
+  - /home/ec2-user/files/keys.yml
   tasks:
   - name: Basic Provisioning of an AMI from our instance
     ec2_ami:
-      aws_access_key: "{{ aws_id }}"
-      aws_secret_key: "{{ aws_key }}"
+      aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
+      aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
       region: "{{ aws_region }}"
-      instance_id: i:0518dfd9e70870220
+      instance_id: i-0518dfd9e70870220
       wait: no
-      name: myAMI
+      name: myami
       tags: 
-        name: MuNewAMI
-        service: MyTestService
-      register: instance
+        Name: MyNewAMI
+        Service: MyTestService
+    register: instance

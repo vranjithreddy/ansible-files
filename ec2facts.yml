@@ -7,6 +7,6 @@
   tasks: 
   - name: Gather the ec2 facts about running instances
     action: ec2_fatcs
-  - name: onditional display of instance type
-    debug: msg="This Instance is of type t2.micro"
-    when: ansible_ec2_instance_type == 't2.micro'        
+  - name: Display of instance type
+    debug: msg= '{{ ansible_ec2_instance_type }}'
+            

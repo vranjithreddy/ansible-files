@@ -1,0 +1,17 @@
+--- # Assigning Ec2 Key pair example
+- hosts: localhost
+  connection: local
+  remote_user: ec2-user
+  become: yes
+  gather_facts: no
+  vars_files:
+  - files/keys.yml
+  tasks:
+  - name: Create a new keypair - Mykey
+    ec2_key: 
+      aws_access_key: "{{aws_id}}"
+      aws_secret_key: "{{aws_key}}"
+      name: MyKeyPair
+      region: us-east-1
+      state: present
+ 

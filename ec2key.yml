@@ -5,7 +5,7 @@
   become: yes
   gather_facts: no
   vars_files:
-  - files/keys.yml
+  - files Path###
   tasks:
   - name: Create a new keypair - Mykey
     ec2_key: 

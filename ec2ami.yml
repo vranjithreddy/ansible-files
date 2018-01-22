@@ -12,7 +12,7 @@
       aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
       aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
       region: "{{ aws_region }}"
-      instance_id: i-0518dfd9e70870220
+      instance_id: i-######
       wait: no
       name: myami
       tags: 

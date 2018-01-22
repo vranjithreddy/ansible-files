@@ -5,14 +5,14 @@
   become: yes
   gather_facts: no
   vars_files:
-  - /home/ec2-user/files/keys.yml
+  - /File Path####
   tasks:
   - name: Basic provisioning of two t2.micro instances
     ec2:
       aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
       aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
       region: "{{ aws_region }}"
-      image: ami-f63b1193
+      image: ami-#####
       instance_type: t2.micro
       count: 2
      
